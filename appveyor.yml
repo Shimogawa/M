@@ -12,7 +12,7 @@ build:
   project: M.sln
   verbosity: minimal
 test_script:
-- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\MTest\bin\Release\MTest.dll -noshadow" -filter:"+[M*]* -[Mtest*]*" -output:".\M_coverage.xml"
+- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\MTest\bin\Release\netcoreapp2.1\MTest.dll -noshadow" -filter:"+[M*]* -[Mtest*]*" -output:".\M_coverage.xml"
 - codecov -f "M_coverage.xml"
 artifacts:
 - path: M\bin\$(configuration)
