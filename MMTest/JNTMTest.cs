@@ -1,8 +1,8 @@
-using System;
+﻿
 using M;
 using Xunit;
 
-namespace MTest
+namespace MMTest
 {
 	public class JNTMTest
 	{
