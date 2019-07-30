@@ -4,7 +4,6 @@ image: Visual Studio 2017
 configuration: Release
 environment:
   configuration: Release
-  CODECOV_TOKEN: 151a3cf3-e843-424b-8728-7e1b0e18c426
 before_build:
 - nuget restore
 - choco install opencover.portable
@@ -13,8 +12,8 @@ build:
   project: M.sln
   verbosity: minimal
 test_script:
-- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\MTest\bin\$(configuration)\MTest.dll -noshadow" -filter:"+[M*]* -[Mtest*]*" -output:".\M_coverage.xml"
-- codecov -f "M_coverage.xml" -t $(CODECOV_TOKEN)
+- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\MTest\bin\Release\MTest.dll -noshadow" -filter:"+[M*]* -[Mtest*]*" -output:".\M_coverage.xml"
+- codecov -f "M_coverage.xml"
 artifacts:
 - path: M\bin\$(configuration)
   name: m-v$(appveyor_build_version)
