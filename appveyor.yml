@@ -1,0 +1,14 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Release
+environment:
+  configuration: Release
+build:
+  verbosity: minimal
+artifacts:
+- path: M\bin\$(configuration)
+  name: m-v$(appveyor_build_version)
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: KSni4u2XyvmHoWv8dyM7z16yHZk9EpAhYDVE5QyhzG3owWNTRD1MqPjiJbEbRDGf
